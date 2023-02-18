@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="post">
+  {% csrf_token %}
+  <div>
+    <label for="email">ご連絡先メールアドレス</label>
+    <input type="email" id="email" name="email">
+  </div>
+  <div>
+    <label for="pass">パスワード</label>
+    <input type="password" id="password" name="password">
+  </div>
+  <div>
+    <label for="agency_id">代理店ID</label>
+    <input type="text" id="agency_id" name="agency_id">
+  </div>
+  <div>
+    <label for="name">名前</label>
+    <input type="text" id="name" name="name">
+  </div>
+  <div>
+    <label for="name_ruby">フリガナ</label>
+    <input type="text" id="name_ruby" name="name_ruby">
+  </div>
+  <div>
+    <label for="phone">電話番号</label>
+    <input type="tel" id="phone" name="phone">
+  </div>
+  <div>
+    <label for="post">郵便番号</label>
+    <input type="text" id="post" name="post">
+  </div>
+  <div>
+    <label for="prefectures">都道府県</label>
+    <input type="text" id="prefectures" name="prefectures">
+  </div>
+  <div>
+    <label for="address">住所</label>
+    <input type="text" id="address" name="address">
+  </div>
+  <div>
+    <label for="insta_id">インスタアカウント名</label>
+    <input type="text" id="insta_id" name="insta_id">
+  </div>
+  <div>
+    <label for="insta_pass">インスタパスワード</label>
+    <input type="text" id="insta_pass" name="insta_pass">
+  </div>
+  <div>
+    <input type="checkbox" id="agree" />
+    <label for="agree"><a href="{% url 'instaformapp:privacy-policy' %}">プライバシーポリシー</a>に同意する</label>
+  </div>
+  <div>
+    <input type="checkbox" id="agree" />
+    <label for="agree"><a href="{% url 'instaformapp:terms' %}">利用規約</a>に同意する</label>
+  </div>
+
+  <div>
+    <p>インスタプラン</p>
+    <label for="True">ミニマム</label>
+    <input type="radio" id="True" name="insta_plan" value="premire"><br>
+    <label for="False">ベーシック</label>
+    <input type="radio" id="False" name="insta_plan" value="midle">
+  </div>
+  
+  <script type="text/javascript" src="https://checkout.pay.jp/" class="payjp-button"
+    data-key="pk_test_790fb82b7fad88e350c7d3b8" data-submit-text="カードを登録する">
+    </script>
+</form>
+
+{% endblock content %}

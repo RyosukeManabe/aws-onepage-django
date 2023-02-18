@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div>
+  <input type="checkbox" id="agree" />
+  <label for="agree"><a href="{% url 'instaformapp:form' %}">インスタフォーム</a></label>
+</div>
+
+<div>
+  <input type="checkbox" id="agree" />
+  <label for="agree"><a href="{% url 'hpformapp:form' %}">HPフォーム</a></label>
+</div>
+
+
+{% endblock content %}

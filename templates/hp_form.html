@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="post">
+  {% csrf_token %}
+  <div>
+    <label for="email">ご連絡先メールアドレス</label>
+    <input type="email" id="email" name="email">
+  </div>
+  <div>
+    <label for="pass">パスワード</label>
+    <input type="password" id="password" name="password">
+  </div>
+  <div>
+    <p>依頼内容</p>
+    <label for="True">新規製作</label>
+    <input type="radio" id="True" name="new" value="True"><br>
+    <label for="False">リニューアル</label>
+    <input type="radio" id="False" name="new" value="False">
+  </div>
+  <div>
+    <label for="site_url">現サイトURL</label>
+    <input type="url" id="site_url" name="site_url">
+  </div>
+  <div>
+    <label for="company_name">会社（店舗）名</label>
+    <input type="text" id="company_name" name="company_name">
+  </div>
+  <div>
+    <label for="manager_name">担当者名</label>
+    <input type="text" id="manager_name" name="manager_name">
+  </div>
+  <div>
+    <label for="phone">日中ご連絡先電話番号</label>
+    <input type="text" id="phone" name="phone">
+  </div>
+  <div>
+    <label for="post">郵便番号</label>
+    <input type="text" id="post" name="post">
+  </div>
+  <div>
+    <label for="address">住所</label>
+    <input type="text" id="address" name="address">
+  </div>
+  <div>
+    <label for="company_overview">会社（店舗）概要</label>
+    <input type="text" id="company_overview" name="company_overview">
+  </div>
+  <div>
+    <label for="hope_domain">希望ドメイン</label>
+    <input type="text" id="hope_domain" name="hope_domain">
+  </div>
+  <div>
+    <label for="site_image">サイト希望イメージ</label>
+    <select multiple name="site_image" id="site_image">
+    <option value="kind">優しい</option>
+    <option value="warm">暖かい</option>
+    <option value="lively">にぎやか</option>
+    <option value="calm">落ち着きのある</option>
+    <option value="japanese_style">和風</option>
+    <option value="deluxe">高級な</option>
+    <option value="others">その他</option>
+  </select>
+</div>
+  <div>
+    <label for="site_image_text">希望イメージのその他</label>
+    <input type="text" id="site_image_text" name="site_image_text">
+  </div>
+  <div>
+    <label for="color">サイト希望イメージ</label>
+    <select multiple name="color" id="color">
+    <option value="red">赤</option>
+    <option value="blue">青</option>
+    <option value="green">緑</option>
+    <option value="black">黒</option>
+    <option value="White">白</option>
+    <option value="pink">ピンク</option>
+    <option value="orange">オレンジ</option>
+    <option value="others">その他</option>
+  </select>
+</div>
+  <div>
+    <label for="color_text">希望イメージのその他</label>
+    <input type="text" id="color_text" name="color_text">
+  </div>
+  <div>
+    <label for="business">事業内容</label>
+    <input type="text" id="business" name="business">
+  </div>
+  <div>
+    <label for="menu">取扱い商材（メニュー）</label>
+    <input type="text" id="menu" name="menu">
+  </div>
+  <div>
+    <label for="strength">自社（自店舗）の強み</label>
+    <input type="text" id="strength" name="strength">
+  </div>
+  <div>
+    <label for="keyword">サイトに記載されたいキーワード</label>
+    <input type="text" id="keyword" name="keyword">
+  </div>
+  <div>
+    <label for="image_data">使用する画像とロゴデータ</label>
+    <input type="file" id="image_data" name="image_data">
+  </div>
+    <div>
+      <input type="checkbox" id="agree" />
+      <label for="agree"><a href="{% url 'instaformapp:privacy-policy' %}">プライバシーポリシー</a>に同意する</label>
+    </div>
+    <div>
+      <input type="checkbox" id="agree" />
+      <label for="agree"><a href="{% url 'instaformapp:terms' %}">利用規約</a>に同意する</label>
+    </div>
+
+  <div>
+    <p>ホームページプラン</p>
+    <label for="True">ミニマム</label>
+    <input type="radio" id="True" name="hp_plan" value="premire"><br>
+    <label for="False">ベーシック</label>
+    <input type="radio" id="False" name="hp_plan" value="midle">
+  </div>
+  <script type="text/javascript" src="https://checkout.pay.jp/" class="payjp-button"
+  data-key="pk_test_790fb82b7fad88e350c7d3b8" data-submit-text="カードを登録する">
+  </script>
+</form>
+
+{% endblock content %}
